@@ -60,3 +60,9 @@
 /* .opsContainer {
   align-self: flex-end;
 } */
+
+.playing {
+  transform: scale(1.1);
+  background-color: gray;
+  box-shadow: 0 0 1rem gray;
+}

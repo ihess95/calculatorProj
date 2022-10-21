@@ -4,8 +4,10 @@ const numbersContainer = document.querySelector(".numbersContainer");
 const opsContainer = document.querySelector(".opsContainer");
 const miscContainer = document.querySelector(".misc");
 const equalsContainer = document.querySelector(".equalsContainer");
+let mathNumber1 = "0";
+let mathNumber2 = "0";
 equalsContainer.textContent = "=";
-screenContainer.textContent = "000000000";
+screenContainer.textContent = mathNumber1;
 let temp = 1;
 let temp2 = 1;
 
@@ -48,6 +50,24 @@ function makeMisc() {
   }
 }
 
+function addTransition(e) {
+  e.classList.add("playing");
+}
+
+function removeTransition(e) {
+  if (".playing" in e.classList) {
+    e.target.classList.remove("playing");
+  }
+}
+
+function clearScreen() {
+  screenContainer.textContent = "0";
+}
+
+function add(mathNumber1) {
+  mathNumber2 = screenContainer.textContent;
+}
+
 makeNumbers();
 makeOps();
 makeMisc();
@@ -55,6 +75,12 @@ makeMisc();
 const numButtons = document.querySelectorAll(".numButton");
 numButtons.forEach((button) => {
   button.textContent = temp;
+  button.addEventListener("mousedown", function () {
+    addTransition(button);
+
+    screenContainer.textContent = mathNumber1 + button.textContent;
+    mathNumber1 = screenContainer.textContent;
+  });
   temp++;
 });
 const opsButton = document.querySelectorAll(".opsButton");
