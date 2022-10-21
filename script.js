@@ -3,7 +3,11 @@ const buttonsContainer = document.querySelector(".buttonsContainer");
 const numbersContainer = document.querySelector(".numbersContainer");
 const opsContainer = document.querySelector(".opsContainer");
 const miscContainer = document.querySelector(".misc");
+const equalsContainer = document.querySelector(".equalsContainer");
+equalsContainer.textContent = "=";
+screenContainer.textContent = "000000000";
 let temp = 1;
+let temp2 = 1;
 
 function makeNumbers() {
   for (let i = 0; i < 3; i++) {
@@ -35,7 +39,7 @@ function makeMisc() {
   for (let i = 0; i < 1; i++) {
     let col = document.createElement("div");
     col.className = "miscCol";
-    for (let j = 0; j < 4; j++) {
+    for (let j = 0; j < 3; j++) {
       let row = document.createElement("div");
       row.className = "miscButton";
       col.appendChild(row);
@@ -55,9 +59,30 @@ numButtons.forEach((button) => {
 });
 const opsButton = document.querySelectorAll(".opsButton");
 opsButton.forEach((button) => {
-  button.textContent = "test";
+  if (temp2 === 1) {
+    button.textContent = "÷";
+    temp2++;
+  } else if (temp2 === 2) {
+    button.textContent = "x";
+    temp2++;
+  } else if (temp2 === 3) {
+    button.textContent = "-";
+    temp2++;
+  } else {
+    button.textContent = "+";
+    temp2 = 1;
+  }
 });
 const miscButton = document.querySelectorAll(".miscButton");
 miscButton.forEach((button) => {
-  button.textContent = "misc";
+  if (temp2 === 1) {
+    button.textContent = "0";
+    temp2++;
+  } else if (temp2 === 2) {
+    button.textContent = ".";
+    temp2++;
+  } else {
+    button.textContent = "⌫";
+    temp2 = 1;
+  }
 });
