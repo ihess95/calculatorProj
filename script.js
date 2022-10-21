@@ -77,9 +77,14 @@ numButtons.forEach((button) => {
   button.textContent = temp;
   button.addEventListener("mousedown", function () {
     addTransition(button);
-
-    screenContainer.textContent = mathNumber1 + button.textContent;
-    mathNumber1 = screenContainer.textContent;
+    if (mathNumber1 === "0") {
+      screenContainer.textContent = "";
+      screenContainer.textContent = button.textContent;
+      mathNumber1 = button.textContent;
+    } else {
+      screenContainer.textContent = mathNumber1 + button.textContent;
+      mathNumber1 = screenContainer.textContent;
+    }
   });
   temp++;
 });
