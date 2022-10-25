@@ -77,13 +77,16 @@ numButtons.forEach((button) => {
   button.textContent = temp;
   button.addEventListener("mousedown", function () {
     // addTransition(button);
-    if (mathNumber1 === "0") {
-      screenContainer.textContent = "";
-      screenContainer.textContent = button.textContent;
-      mathNumber1 = button.textContent;
-    } else {
-      screenContainer.textContent = mathNumber1 + button.textContent;
-      mathNumber1 = screenContainer.textContent;
+    let maxChars = 9;
+    if (screenContainer.textContent.length <= maxChars) {
+      if (mathNumber1 === "0") {
+        screenContainer.textContent = "";
+        screenContainer.textContent = button.textContent;
+        mathNumber1 = button.textContent;
+      } else {
+        screenContainer.textContent = mathNumber1 + button.textContent;
+        mathNumber1 = screenContainer.textContent;
+      }
     }
   });
   temp++;
