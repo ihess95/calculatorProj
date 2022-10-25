@@ -76,7 +76,7 @@ const numButtons = document.querySelectorAll(".numButton");
 numButtons.forEach((button) => {
   button.textContent = temp;
   button.addEventListener("mousedown", function () {
-    addTransition(button);
+    // addTransition(button);
     if (mathNumber1 === "0") {
       screenContainer.textContent = "";
       screenContainer.textContent = button.textContent;
@@ -88,6 +88,7 @@ numButtons.forEach((button) => {
   });
   temp++;
 });
+
 const opsButton = document.querySelectorAll(".opsButton");
 opsButton.forEach((button) => {
   if (temp2 === 1) {
