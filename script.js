@@ -6,6 +6,8 @@ const miscContainer = document.querySelector(".misc");
 const equalsContainer = document.querySelector(".equalsContainer");
 let mathNumber1 = "0";
 let mathNumber2 = "0";
+let equationVar = "";
+let opvar = "";
 equalsContainer.textContent = "=";
 screenContainer.textContent = mathNumber1;
 let temp = 1;
@@ -87,6 +89,7 @@ numButtons.forEach((button) => {
         screenContainer.textContent = mathNumber1 + button.textContent;
         mathNumber1 = screenContainer.textContent;
       }
+      console.log(mathNumber1);
     }
   });
   temp++;
@@ -97,14 +100,26 @@ opsButton.forEach((button) => {
   if (temp2 === 1) {
     button.textContent = "÷";
     temp2++;
+    button.addEventListener("click", function () {
+      opvar = "/";
+    });
   } else if (temp2 === 2) {
     button.textContent = "x";
+    button.addEventListener("click", function () {
+      opvar = "*";
+    });
     temp2++;
   } else if (temp2 === 3) {
     button.textContent = "-";
+    button.addEventListener("click", function () {
+      opvar = button.textContent;
+    });
     temp2++;
   } else {
     button.textContent = "+";
+    button.addEventListener("click", function () {
+      opvar = button.textContent;
+    });
     temp2 = 1;
   }
 });
