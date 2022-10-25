@@ -81,15 +81,13 @@ numButtons.forEach((button) => {
     // addTransition(button);
     let maxChars = 9;
     if (screenContainer.textContent.length <= maxChars) {
-      if (mathNumber1 === "0") {
+      if (screenContainer.textContent === "0") {
         screenContainer.textContent = "";
         screenContainer.textContent = button.textContent;
-        mathNumber1 = button.textContent;
       } else {
-        screenContainer.textContent = mathNumber1 + button.textContent;
-        mathNumber1 = screenContainer.textContent;
+        screenContainer.textContent =
+          screenContainer.textContent + button.textContent;
       }
-      console.log(mathNumber1);
     }
   });
   temp++;
@@ -98,24 +96,28 @@ numButtons.forEach((button) => {
 const opsButton = document.querySelectorAll(".opsButton");
 opsButton.forEach((button) => {
   if (temp2 === 1) {
+    mathNumber1 = screenContainer.textContent;
     button.textContent = "÷";
     temp2++;
     button.addEventListener("click", function () {
       opvar = "/";
     });
   } else if (temp2 === 2) {
+    mathNumber1 = screenContainer.textContent;
     button.textContent = "x";
     button.addEventListener("click", function () {
       opvar = "*";
     });
     temp2++;
   } else if (temp2 === 3) {
+    mathNumber1 = screenContainer.textContent;
     button.textContent = "-";
     button.addEventListener("click", function () {
       opvar = button.textContent;
     });
     temp2++;
   } else {
+    mathNumber1 = screenContainer.textContent;
     button.textContent = "+";
     button.addEventListener("click", function () {
       opvar = button.textContent;
