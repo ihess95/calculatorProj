@@ -76,6 +76,7 @@ function evaluator() {
   } else if (opvar === "+") {
     equationVar = parseFloat(mathNumber1) + parseFloat(mathNumber2);
   }
+  num1 = true;
 }
 
 makeNumbers();
@@ -114,6 +115,7 @@ opsButton.forEach((button) => {
     button.addEventListener("click", function () {
       opvar = "/";
       num1 = false;
+      screenContainer.textContent = 0;
     });
   } else if (temp2 === 2) {
     if (num1 === true) {
@@ -125,6 +127,7 @@ opsButton.forEach((button) => {
     button.addEventListener("click", function () {
       opvar = "*";
       num1 = false;
+      screenContainer.textContent = 0;
     });
     temp2++;
   } else if (temp2 === 3) {
@@ -137,6 +140,7 @@ opsButton.forEach((button) => {
     button.addEventListener("click", function () {
       opvar = button.textContent;
       num1 = false;
+      screenContainer.textContent = 0;
     });
     temp2++;
   } else {
@@ -149,6 +153,7 @@ opsButton.forEach((button) => {
     button.addEventListener("click", function () {
       opvar = button.textContent;
       num1 = false;
+      screenContainer.textContent = 0;
     });
     temp2 = 1;
   }
