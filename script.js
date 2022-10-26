@@ -6,6 +6,7 @@ const miscContainer = document.querySelector(".misc");
 const equalsContainer = document.querySelector(".equalsContainer");
 let mathNumber1 = "0";
 let mathNumber2 = "0";
+let num1 = true;
 let equationVar = "";
 let opvar = "";
 equalsContainer.textContent = "=";
@@ -65,9 +66,16 @@ function removeTransition(e) {
 function clearScreen() {
   screenContainer.textContent = "0";
 }
-
-function add(mathNumber1) {
-  mathNumber2 = screenContainer.textContent;
+function evaluator() {
+  if (opvar === "/") {
+    equationVar = parseFloat(mathNumber1) / parseFloat(mathNumber2);
+  } else if (opvar === "*") {
+    equationVar = parseFloat(mathNumber1) * parseFloat(mathNumber2);
+  } else if (opvar === "-") {
+    equationVar = parseFloat(mathNumber1) - parseFloat(mathNumber2);
+  } else if (opvar === "+") {
+    equationVar = parseFloat(mathNumber1) + parseFloat(mathNumber2);
+  }
 }
 
 makeNumbers();
@@ -96,31 +104,51 @@ numButtons.forEach((button) => {
 const opsButton = document.querySelectorAll(".opsButton");
 opsButton.forEach((button) => {
   if (temp2 === 1) {
-    mathNumber1 = screenContainer.textContent;
+    if (num1 === true) {
+      mathNumber1 = screenContainer.textContent;
+    } else {
+      mathNumber2 = screenContainer.textContent;
+    }
     button.textContent = "÷";
     temp2++;
     button.addEventListener("click", function () {
       opvar = "/";
+      num1 = false;
     });
   } else if (temp2 === 2) {
-    mathNumber1 = screenContainer.textContent;
+    if (num1 === true) {
+      mathNumber1 = screenContainer.textContent;
+    } else {
+      mathNumber2 = screenContainer.textContent;
+    }
     button.textContent = "x";
     button.addEventListener("click", function () {
       opvar = "*";
+      num1 = false;
     });
     temp2++;
   } else if (temp2 === 3) {
-    mathNumber1 = screenContainer.textContent;
+    if (num1 === true) {
+      mathNumber1 = screenContainer.textContent;
+    } else {
+      mathNumber2 = screenContainer.textContent;
+    }
     button.textContent = "-";
     button.addEventListener("click", function () {
       opvar = button.textContent;
+      num1 = false;
     });
     temp2++;
   } else {
-    mathNumber1 = screenContainer.textContent;
+    if (num1 === true) {
+      mathNumber1 = screenContainer.textContent;
+    } else {
+      mathNumber2 = screenContainer.textContent;
+    }
     button.textContent = "+";
     button.addEventListener("click", function () {
       opvar = button.textContent;
+      num1 = false;
     });
     temp2 = 1;
   }
@@ -137,4 +165,12 @@ miscButton.forEach((button) => {
     button.textContent = "⌫";
     temp2 = 1;
   }
+});
+
+equalsContainer.addEventListener("click", function () {
+  console.log(mathNumber1);
+  console.log(mathNumber2);
+  console.log(opvar);
+  evaluator();
+  screenContainer.textContent = equationVar;
 });
