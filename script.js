@@ -136,39 +136,42 @@ const opsButton = document.querySelectorAll(".opsButton");
 opsButton.forEach((button) => {
   //if button 1 (divide)
   if (temp2 === 1) {
-    //if num1 is true, store on num1, else store on num2
-    isNum1(num1);
     button.textContent = "÷";
     temp2++;
     button.addEventListener("click", function () {
       opvar = "/";
+      //if num1 is true, store on num1, else store on num2
+      isNum1(num1);
       num1 = false;
       screenContainer.textContent = 0;
     });
     //if button 2 (multiply)
   } else if (temp2 === 2) {
-    isNum1(num1);
     button.textContent = "x";
     button.addEventListener("click", function () {
       opvar = "*";
+      //if num1 is true, store on num1, else store on num2
+      isNum1(num1);
       num1 = false;
       screenContainer.textContent = 0;
     });
     temp2++;
   } else if (temp2 === 3) {
-    isNum1(num1);
     button.textContent = "-";
     button.addEventListener("click", function () {
       opvar = button.textContent;
+      //if num1 is true, store on num1, else store on num2
+      isNum1(num1);
       num1 = false;
       screenContainer.textContent = 0;
     });
     temp2++;
   } else {
-    isNum1(num1);
     button.textContent = "+";
     button.addEventListener("click", function () {
       opvar = button.textContent;
+      //if num1 is true, store on num1, else store on num2
+      isNum1(num1);
       num1 = false;
       screenContainer.textContent = 0;
     });
@@ -193,9 +196,7 @@ miscButton.forEach((button) => {
 
 //define functionality for equals button
 equalsContainer.addEventListener("click", function () {
-  console.log(mathNumber1);
-  console.log(mathNumber2);
-  console.log(opvar);
+  mathNumber2 = screenContainer.textContent;
   evaluator();
   screenContainer.textContent = equationVar;
 });
