@@ -4,6 +4,7 @@ const numbersContainer = document.querySelector(".numbersContainer");
 const opsContainer = document.querySelector(".opsContainer");
 const miscContainer = document.querySelector(".misc");
 const equalsContainer = document.querySelector(".equalsContainer");
+const clearContainer = document.querySelector(".clearContainer");
 let mathNumber1 = "0";
 let mathNumber2 = "0";
 let num1 = true;
@@ -79,21 +80,21 @@ function removeTransition(e) {
 
 //define function for choosing which variable to store to
 function isNum1(num1) {
-  //if (num1 === true) {
-  if (mathNumber2 === "0") {
-    mathNumber1 = screenContainer.textContent;
+  if (num1 === true) {
+    if (mathNumber2 === "0") {
+      mathNumber1 = screenContainer.textContent;
+    } else {
+      mathNumber1 = equationVar;
+      mathNumber2 = screenContainer.textContent;
+    }
   } else {
-    mathNumber1 = mathNumber2;
-    mathNumber2 = screenContainer.textContent;
+    if (mathNumber2 === "0") {
+      mathNumber2 = screenContainer.textContent;
+    } else {
+      mathNumber1 = mathNumber2;
+      mathNumber2 = screenContainer.textContent;
+    }
   }
-  //} else {
-  // if (mathNumber2 === "0") {
-  //   mathNumber2 = screenContainer.textContent;
-  // } else {
-  //   mathNumber1 = mathNumber2;
-  //   mathNumber2 = screenContainer.textContent;
-  // }
-  //}
 }
 
 //function used to set screen container text content back to 0
@@ -121,6 +122,13 @@ function chain() {
     evaluator();
     screenContainer.textContent = equationVar;
   }
+}
+
+function clearAll() {
+  screenContainer.textContent = 0;
+  mathNumber1 = "0";
+  mathNumber2 = "0";
+  equationVar = "0";
 }
 //run calculator creating functions
 makeNumbers();
@@ -161,7 +169,12 @@ opsButton.forEach((button) => {
       //if num1 is true, store on num1, else store on num2
       isNum1(num1);
       num1 = false;
-      screenContainer.textContent = 0;
+      if (mathNumber1 !== "0" && mathNumber2 !== "0") {
+        evaluator();
+        screenContainer.textContent = equationVar;
+      } else {
+        screenContainer.textContent = 0;
+      }
     });
     //if button 2 (multiply)
   } else if (temp2 === 2) {
@@ -172,7 +185,12 @@ opsButton.forEach((button) => {
       //if num1 is true, store on num1, else store on num2
       isNum1(num1);
       num1 = false;
-      screenContainer.textContent = 0;
+      if (mathNumber1 !== "0" && mathNumber2 !== "0") {
+        evaluator();
+        screenContainer.textContent = equationVar;
+      } else {
+        screenContainer.textContent = 0;
+      }
     });
     temp2++;
   } else if (temp2 === 3) {
@@ -183,7 +201,12 @@ opsButton.forEach((button) => {
       isNum1(num1);
       chain();
       num1 = false;
-      screenContainer.textContent = 0;
+      if (mathNumber1 !== "0" && mathNumber2 !== "0") {
+        evaluator();
+        screenContainer.textContent = equationVar;
+      } else {
+        screenContainer.textContent = 0;
+      }
     });
     temp2++;
   } else {
@@ -194,7 +217,12 @@ opsButton.forEach((button) => {
       isNum1(num1);
       chain();
       num1 = false;
-      screenContainer.textContent = 0;
+      if (mathNumber1 !== "0" && mathNumber2 !== "0") {
+        evaluator();
+        screenContainer.textContent = equationVar;
+      } else {
+        screenContainer.textContent = 0;
+      }
     });
     temp2 = 1;
   }
@@ -248,3 +276,6 @@ equalsContainer.addEventListener("click", function () {
   }
   //mathNumber1 = screenContainer.textContent
 });
+
+clearContainer.textContent = "AC";
+clearContainer.addEventListener("click", clearAll);
