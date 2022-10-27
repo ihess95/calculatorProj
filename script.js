@@ -79,11 +79,21 @@ function removeTransition(e) {
 
 //define function for choosing which variable to store to
 function isNum1(num1) {
-  if (num1 === true) {
+  //if (num1 === true) {
+  if (mathNumber2 === "0") {
     mathNumber1 = screenContainer.textContent;
   } else {
+    mathNumber1 = mathNumber2;
     mathNumber2 = screenContainer.textContent;
   }
+  //} else {
+  // if (mathNumber2 === "0") {
+  //   mathNumber2 = screenContainer.textContent;
+  // } else {
+  //   mathNumber1 = mathNumber2;
+  //   mathNumber2 = screenContainer.textContent;
+  // }
+  //}
 }
 
 //function used to set screen container text content back to 0
@@ -105,6 +115,13 @@ function evaluator() {
   num1 = true;
 }
 
+//add function for chaining together problems
+function chain() {
+  if (mathNumber1 !== "0" && mathNumber2 !== "0") {
+    evaluator();
+    screenContainer.textContent = equationVar;
+  }
+}
 //run calculator creating functions
 makeNumbers();
 makeOps();
@@ -140,6 +157,7 @@ opsButton.forEach((button) => {
     temp2++;
     button.addEventListener("click", function () {
       opvar = "/";
+      chain();
       //if num1 is true, store on num1, else store on num2
       isNum1(num1);
       num1 = false;
@@ -150,6 +168,7 @@ opsButton.forEach((button) => {
     button.textContent = "x";
     button.addEventListener("click", function () {
       opvar = "*";
+      chain();
       //if num1 is true, store on num1, else store on num2
       isNum1(num1);
       num1 = false;
@@ -162,6 +181,7 @@ opsButton.forEach((button) => {
       opvar = button.textContent;
       //if num1 is true, store on num1, else store on num2
       isNum1(num1);
+      chain();
       num1 = false;
       screenContainer.textContent = 0;
     });
@@ -172,6 +192,7 @@ opsButton.forEach((button) => {
       opvar = button.textContent;
       //if num1 is true, store on num1, else store on num2
       isNum1(num1);
+      chain();
       num1 = false;
       screenContainer.textContent = 0;
     });
@@ -185,18 +206,45 @@ miscButton.forEach((button) => {
   if (temp2 === 1) {
     button.textContent = "0";
     temp2++;
+    button.addEventListener("click", function () {
+      let maxChars = 9;
+      if (screenContainer.textContent.length <= maxChars) {
+        if (screenContainer.textContent === "0") {
+          screenContainer.textContent = "";
+          screenContainer.textContent = button.textContent;
+        } else {
+          screenContainer.textContent =
+            screenContainer.textContent + button.textContent;
+        }
+      }
+    });
   } else if (temp2 === 2) {
     button.textContent = ".";
+    button.addEventListener("click", function () {
+      if (screenContainer.textContent.includes(".")) {
+        screenContainer.textContent = screenContainer.textContent;
+      } else {
+        screenContainer.textContent = screenContainer.textContent + ".";
+      }
+    });
     temp2++;
   } else {
     button.textContent = "⌫";
+    button.addEventListener("click", function () {
+      screenContainer.textContent = screenContainer.textContent.slice(0, -1);
+    });
     temp2 = 1;
   }
 });
 
 //define functionality for equals button
 equalsContainer.addEventListener("click", function () {
-  mathNumber2 = screenContainer.textContent;
-  evaluator();
-  screenContainer.textContent = equationVar;
+  if (mathNumber1 !== "0") {
+    mathNumber2 = screenContainer.textContent;
+    evaluator();
+    screenContainer.textContent = equationVar;
+  } else {
+    screenContainer.textContent = screenContainer.textContent;
+  }
+  //mathNumber1 = screenContainer.textContent
 });
