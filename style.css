@@ -4,7 +4,7 @@
 }
 
 body {
-  color: ;
+  color: darkmagenta;
 }
 
 .calcContainerContainer {
@@ -12,10 +12,13 @@ body {
   justify-content: center;
   min-width: 220px;
   max-width: 300px;
-  padding: 50px;
   margin-left: 30%;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   margin-right: 30%;
-  border: ridge 10px green;
+  border: ridge 10px darkgreen;
   border-radius: 30px;
   background-color: #9ba7ba;
 }
@@ -27,6 +30,17 @@ body {
   max-width: 298px;
   text-align: right;
   font-size: 30px;
+}
+
+.screenContainerContainer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #8998ac;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .buttonsContainer {
@@ -43,6 +57,7 @@ body {
   width: 278px;
   padding: 10px;
   margin: 3px;
+  margin
   background-color: #a8bfe3;
   border-radius: 2px;
   text-align: center;
