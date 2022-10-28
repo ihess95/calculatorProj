@@ -3,17 +3,26 @@
   flex-direction: column;
 }
 
+body {
+  color: ;
+}
+
 .calcContainerContainer {
   display: flex;
   justify-content: center;
-  margin: auto;
+  min-width: 220px;
+  max-width: 300px;
   padding: 50px;
+  margin-left: 30%;
+  margin-right: 30%;
   border: ridge 10px green;
   border-radius: 30px;
+  background-color: #9ba7ba;
 }
 
 .screenContainer {
   border: solid grey;
+  background-color: antiquewhite;
   border-radius: 5px;
   max-width: 298px;
   text-align: right;
@@ -34,7 +43,7 @@
   width: 278px;
   padding: 10px;
   margin: 3px;
-  background-color: aqua;
+  background-color: #a8bfe3;
   border-radius: 2px;
   text-align: center;
 }
@@ -46,7 +55,7 @@
   width: 50px;
   padding: 10px;
   margin: 3px;
-  background-color: aqua;
+  background-color: #a8bfe3;
   border-radius: 2px;
 }
 .opsButton {
