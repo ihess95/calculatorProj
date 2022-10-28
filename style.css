@@ -5,6 +5,7 @@
 
 body {
   color: darkmagenta;
+  background-color: rgb(8, 41, 8);
 }
 
 .calcContainerContainer {
@@ -12,6 +13,7 @@ body {
   justify-content: center;
   min-width: 220px;
   max-width: 300px;
+  margin-top: 10%;
   margin-left: 30%;
   padding-left: 50px;
   padding-right: 50px;
