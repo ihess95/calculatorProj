@@ -1,9 +1,15 @@
 .calcContainer {
   display: flex;
   flex-direction: column;
-  border: solid goldenrod;
-  border-radius: 20px;
+}
+
+.calcContainerContainer {
+  display: flex;
+  justify-content: center;
+  margin: auto;
   padding: 50px;
+  border: ridge 10px green;
+  border-radius: 30px;
 }
 
 .screenContainer {
