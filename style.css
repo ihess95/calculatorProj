@@ -5,7 +5,9 @@
 
 body {
   color: darkmagenta;
-  background-color: rgb(8, 41, 8);
+  background: radial-gradient(ellipse at top, #2dad53, transparent),
+    radial-gradient(ellipse at bottom, #192e07, transparent);
+  background-size: cover;
 }
 
 h1 {
