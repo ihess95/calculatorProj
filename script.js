@@ -274,7 +274,6 @@ equalsContainer.addEventListener("click", function () {
   } else {
     screenContainer.textContent = screenContainer.textContent;
   }
-  //mathNumber1 = screenContainer.textContent
 });
 
 clearContainer.textContent = "AC";
