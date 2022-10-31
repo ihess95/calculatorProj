@@ -121,3 +121,11 @@ h1 {
   background-color: gray;
   box-shadow: 0 0 1rem gray;
 }
+
+.numButton:active,
+.opsButton:active,
+.miscButton:active,
+.equalsContainer:active,
+.clearContainer:active {
+  background-color: antiquewhite;
+}
