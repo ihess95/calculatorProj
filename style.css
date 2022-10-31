@@ -131,3 +131,12 @@ h1 {
 .clearContainer:active {
   background-color: #697583;
 }
+
+footer {
+  padding-top: 100px;
+  margin-top: auto;
+  margin-bottom: 100px;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
