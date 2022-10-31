@@ -259,7 +259,11 @@ miscButton.forEach((button) => {
   } else {
     button.textContent = "⌫";
     button.addEventListener("click", function () {
-      screenContainer.textContent = screenContainer.textContent.slice(0, -1);
+      if (screenContainer.textContent.length > 1) {
+        screenContainer.textContent = screenContainer.textContent.slice(0, -1);
+      } else {
+        screenContainer.textContent = "0";
+      }
     });
     temp2 = 1;
   }
